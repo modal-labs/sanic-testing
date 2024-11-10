@@ -3,7 +3,7 @@ import asyncio
 import pytest
 from sanic import Sanic, Websocket
 from sanic.request import Request
-from websockets.client import WebSocketClientProtocol
+from websockets.asyncio.client import ClientConnection
 
 
 @pytest.mark.parametrize(
@@ -33,7 +33,7 @@ def test_websocket_route_basic(app):
 
 
 def test_websocket_route_queue(app: Sanic):
-    async def client_mimic(websocket: WebSocketClientProtocol):
+    async def client_mimic(websocket: ClientConnection):
         await websocket.send("foo")
         await websocket.recv()
 
@@ -54,7 +54,7 @@ def test_websocket_client_mimic_failed(app: Sanic):
     async def handler(request, ws: Websocket):
         pass
 
-    async def client_mimic(websocket: WebSocketClientProtocol):
+    async def client_mimic(websocket: ClientConnection):
         raise Exception("Should fails")
 
     with pytest.raises(Exception, match="Should fails"):
