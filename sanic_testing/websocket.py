@@ -1,7 +1,7 @@
 import typing
 
 from websockets.exceptions import ConnectionClosedOK
-from websockets.legacy.client import connect
+from websockets.asyncio.client import connect
 
 
 class WebsocketProxy:
