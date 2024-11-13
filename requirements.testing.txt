@@ -2,3 +2,4 @@ git+https://github.com/sanic-org/sanic.git
 pytest
 pytest-asyncio
 setuptools
+websockets>=13.0
