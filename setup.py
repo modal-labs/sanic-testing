@@ -48,7 +48,7 @@ setup_kwargs = {
         "Programming Language :: Python :: 3.12",
     ],
 }
-requirements = ["httpx>=0.18"]
+requirements = ["httpx>=0.18", "websockets>=13.0"]
 
 tests_require = [
     "pytest", "sanic>=22.12", "pytest-asyncio",
